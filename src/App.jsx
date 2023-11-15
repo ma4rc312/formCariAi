@@ -4,6 +4,9 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import useQserv from './data/qserv'
 import ChartMain from './components/estadistics'
+import * as Reactstrap from "reactstrap";
+import { motion } from "framer-motion";
+
 
 function App() {
   const [formData, setFormData] = useState({
@@ -32,58 +35,92 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img 
-            src={viteLogo} 
-            className="logo" 
-            alt="Vite logo" 
-          />
-        </a>
-        <a 
-          href="https://react.dev" 
-          target="_blank"
-        >
-          <img 
-            src={reactLogo} 
-            className="logo react" 
-            alt="React logo" 
-          />
-        </a>
-      </div>
-      <h1>Form Cari Ai</h1>
-      <form 
+      <Reactstrap.CardHeader className='carHeaderStyle'>
+        <h1>
+          <span style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 1000 }}>Formulario</span> <span className="cariAiText">CariAi</span>
+        </h1>
+        </Reactstrap.CardHeader>
+
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '30px'}}>
+     
+      <Reactstrap.Form 
         id="work-form" 
         method="POST" 
         onSubmit={handleSubmit}
       >
-        <label >Hora de entrada</label>
-        <input 
-          type="time" 
-          id="entry-time" 
-          name="attendanceIn" 
-          value={formData.attendanceIn} 
-          onChange={handleInputChange} 
-          required 
-        />
 
-        <label >Hora de salida</label>
-        <input 
-          type="time" 
-          id="exit-time" 
-          name="attendanceOut" 
-          value={formData.attendanceOut} 
-          onChange={handleInputChange} 
-          required 
-        />
+    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <Reactstrap.FormGroup className="mb-3" style={{ marginRight: '25px' }}>
+      <label>Hora de entrada</label>
+      <p></p>
+      <Reactstrap.Input 
+        type="time" 
+        className="form-control-alternative"
+        id="entry-time" 
+        name="attendanceIn" 
+        value={formData.attendanceIn} 
+        onChange={handleInputChange} 
+        required 
+      />
+    </Reactstrap.FormGroup>
 
-        <button type="submit">Calcular horas</button>
-      </form>
-      <ChartMain data={data}/>
+    <Reactstrap.FormGroup className="mb-3"   style={{ marginLeft: '20px' }} >
+      <label>Hora de salida</label>
+      <p></p>
+      <Reactstrap.Input 
+        type="time" 
+        className="form-control-alternative"
+        id="exit-time" 
+        name="attendanceOut" 
+        value={formData.attendanceOut} 
+        onChange={handleInputChange} 
+        required 
+      />
+    </Reactstrap.FormGroup>
+  </div>        
+     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '6px'}}>
+       <motion.button 
+         type="submit"
+         whileHover={{ scale: 1.1 }}
+         whileTap={{ scale: 0.9 }}
+       >
+         Calcular horas
+       </motion.button>
+   </div>
 
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      </Reactstrap.Form >
+     </div>
+
+      {/* Graficas */}
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',marginTop: '60px'}}>
+        <ChartMain data={data} />
+      </div>
+
+       {/* Footer */}
+       <Reactstrap.CardFooter style={{ backgroundColor: '#f1f1f1', padding: '20px', textAlign: 'center', marginTop: '10px'}}>
+        <p>&copy; 2023 Marcela</p>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div>
+            <a href="https://vitejs.dev" >
+              <img
+                src={viteLogo}
+                alt="Vite logo"
+                style={{ width: '20px' }}
+              />
+            </a>
+            <a
+              href="https://react.dev"
+            >
+              <img
+                src={reactLogo}
+                alt="React logo"
+                style={{ width: '20px' }}
+              />
+            </a>
+          </div>
+        </div>
+      </Reactstrap.CardFooter>
+
     </>
   )
 }

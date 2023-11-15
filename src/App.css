@@ -1,8 +1,12 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} */
+
+body {
+  background-color: #9fc9d3;
 }
 
 .logo {
@@ -40,3 +44,73 @@
 .read-the-docs {
   color: #888;
 }
+
+.chart{
+ justify-content: center;
+}
+
+.carHeaderStyle {
+  /* border: 1px solid #333; */
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  background-color: #9fc9d3;
+};
+
+.formText {
+  font-family: 'Calypso E', sans-serif;font-family: 'Calypso E', sans-serif;  
+  color: red; /* Cambia el color según tus preferencias */
+}
+
+.cariAiText {
+  font-family: 'Calypso E', sans-serif;font-family: 'Calypso E', sans-serif;  
+  font-weight: 1000;
+  color: blue; /* Cambia el color según tus preferencias */
+}
+
+.form-control-alternative {
+  /* Estilos para los input */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  /* Otros estilos */
+}
+
+
+button {
+
+  --blue: #61dafb;
+
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  background-color: #acc7ed;
+  color: #fff;
+  border-radius: 60px;
+  outline: none;
+  margin: 0;
+  padding: 12px 25px;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-weight: 10;
+  line-height: 18px;
+  letter-spacing: -1px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
